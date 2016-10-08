@@ -3,35 +3,49 @@
 <head>
   <meta charset="utf-8">
   <meta lang = "en">
-  <title>To do list</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToDoCamping</title>
   <link rel="stylesheet" href="css/normalize.css">
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
 </head>
 <body>
   <header>
-    <h1>Here we are</h1>
+    <div class="container">
+      <h1>ToDoCamping</h1>
+    </div>
   </header>
-  <section>
-    <h2 id="we">There we go</h2>
-    <textarea id="myTextarea"></textarea>
+
+
+  <div class = "container">
+    <h2 id="we">Items for the trip</h2>
+    <textarea row= "4" cols = "50" id="myTextarea" placeholder="What are you taking for the trip?"></textarea>
+    <br>
     <button onclick="addTask()">Add</button>
-    <button onclick="deleteTask()">Delete</button>
-    <button onclick="showImage('baby')">image 1 </button>
-    <button onclick="showImage('dog')">image 2 </button>
-
-  <div>
-    <p>Error: Item could not be added</p>
+    <!-- <button onclick="deleteTask()">Delete</button> -->
+    <!-- <button onclick="showImage('baby')">image 1 </button>
+    <button onclick="showImage('dog')">image 2 </button> -->
   </div>
-    <p>Items go here</p>
-    <ul>
-      <li>Hello</li>
-    </ul>
+  <br>
+  <br>
 
+  <div id= "todolist" class="container"></div>
 
-  </section>
-  <div id="imgContainer">
-  </div>
+  <!-- <div class ="container">
+    <div class ="row">
+      <div id="imgContainer" class= "col-md-4"></div>
+    </div>
+  </div> -->
+
   <footer>
   </footer>
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
   <script src="js/myscript.js"></script>
   </body>
 </html>
