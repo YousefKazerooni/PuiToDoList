@@ -1,18 +1,36 @@
 document.getElementById("we").style.color = "blue";
 
-
-
-
-function deleteTask(y) {
-  console.log (y);
-
-}
-
-
-
 //Counter to allow differentiation betw ids for to list rows
 //so that it is easier to delete
 var counterItem = 0;
+
+//a counter to help toggle between complete and incomplete states
+var counterCompletion = 1;
+
+function deleteTask(e) {
+  console.log (e);
+  var todolist = document.querySelector('#todolist');
+  var currentRow = e.target.parentNode;
+  console.log(currentRow);
+  todolist.removeChild(currentRow);
+
+}
+
+function completeTask(e) {
+  counterCompletion++;
+  var completed = e.target;
+  console.log(completed);
+
+  if (counterCompletion%2 === 0) {
+    completed.innerHTML = 'COMPLETED';
+    completed.setAttribute ('class', 'complete');
+  } else {
+    completed.innerHTML = 'Done?';
+    completed.setAttribute ('class', 'completion');
+  }
+
+
+}
 
 function addTask() {
   counterItem++;
@@ -29,91 +47,27 @@ function addTask() {
   //creating a paragraph element inside the row dive to display
   //text area input, delete button, and completion status
   //Paragraph:
+  var textCont = document.getElementById('myTextarea').value;
   var listItems = document.createElement('p');
-  listItems.setAttribute('id', 'inputItems');
+  listItems.setAttribute('class', 'inputItems');
+  listItems.innerHTML = textCont;
   document.getElementById(counterItemId).appendChild(listItems);
+
+  //completion  completed?  COMPLETE
+  var progressTracker = document.createElement ('p');
+  progressTracker.innerHTML = 'Done?';
+  progressTracker.setAttribute('class', 'completion');       //class for styling in CSS
+  progressTracker.addEventListener('click',completeTask);
+  document.getElementById(counterItemId).appendChild(progressTracker);
+
 
   //delete Button:
   var delButton = document.createElement('button');
   var buttonLabel = document.createTextNode ('delete');
   delButton.appendChild(buttonLabel);
-  delButton.setAttribute('id',counterItemId);           //allows tracking which row to delete in deletTask Function
+  //delButton.setAttribute('id',counterItemId);           //allows tracking which row to delete in deletTask Function
   delButton.addEventListener ('click', deleteTask);
   //delButton.onclick = deletTask; ****to be able to access event properties in the delete function have to use addEventListener
   document.getElementById(counterItemId).appendChild(delButton);
-
-
-  //completion
-  
-
-
-
-var x = document.getElementById(counterItemId);
-console.log(x);
-
-  // var x = document.getElementById('todolist');
-  // console.log(x);
-  //
-  //
-  // var textInput= document.getElementsByTagName("textarea")[0].value;
-  // console.log(textInput);
-
-
-
-
-  // //console.log(x[0]);
-  // var textCont = textBox.value;
-  // console.log(textCont);
-  // document.querySelector('.items').innerHTML = textCont;
-
-}
-
-// <div class= "row">
-//   <p class= "items"></p>
-// </div>
-
-
-
-//showing an image after clicking a button
-// function showImage(){
-//   console.log ("show image is running");
-//
-//   var pic = document.createElement("img");
-//
-//   pic.setAttribute("src","http://4.bp.blogspot.com/-2Rahyeo7Buw/UilCqtayhaI/AAAAAAAABAQ/WCDeVBDZzkc/s1600/cute_babies_high_quality_4-normal.jpg");
-//   pic.setAttribute("id","image");
-//
-//   console.log(pic);
-//   console.log (document.querySelector("#imgContainer"));
-//   document.querySelector("#imgContainer").appendChild(pic);
-// }
-
-//removes an image ; not only parents can remove
-function removeImg(){
-  console.log("remove");
-}
-//Showing alternating images after clicking buttons
-function showImage(imgIdentifier) {
-
-  var imgSource;
-  var imgId;
-  if (imgIdentifier=="baby"){
-      imgSource = "http://4.bp.blogspot.com/-2Rahyeo7Buw/UilCqtayhaI/AAAAAAAABAQ/WCDeVBDZzkc/s1600/cute_babies_high_quality_4-normal.jpg";
-      imgId = "baby";
-  } else if (imgIdentifier =="dog"){
-      imgSource = "https://images-na.ssl-images-amazon.com/images/G/01/img15/pet-products/small-tiles/23695_pets_vertical_store_dogs_small_tile_8._CB312176604_.jpg";
-      imgId = "dog";
-  }
-
-  var pic = document.createElement("img");
-  pic.setAttribute("src", imgSource);
-  pic.setAttribute("id", imgId);
-  document.querySelector("#imgContainer").appendChild(pic);
-
-  //make the images removable by adding an event listener; remember only parents can Remove
-  pic.addEventListener("click", removeImg);
-
-
-
 
 }
