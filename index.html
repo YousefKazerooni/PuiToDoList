@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta lang = "en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CampingToDo</title>
+  <title>goCamping</title>
 
    <!-- ************CSS Stylesheets******************** -->
   <link rel="stylesheet" href="css/normalize.css">
@@ -20,21 +20,17 @@
 <body>
   <header>
     <div class="container">
-      <h1>CampingToDo</h1>
+      <h1>goCamping</h1>
     </div>
   </header>
 
 
   <div class = "container">
     <h2 id="we">Items for the trip</h2>
-    <textarea row= "4" cols = "50" id="myTextarea" placeholder="What are you taking for the trip?"></textarea>
+    <textarea row= "4" cols = "50" id="myTextarea" class='form-control' placeholder="What are you taking for the trip?"></textarea>
     <br>
-    <button onclick="addTask()">Add</button>
-    <!-- <button onclick="deleteTask()">Delete</button> -->
-    <!-- <button onclick="showImage('baby')">image 1 </button>
-    <button onclick="showImage('dog')">image 2 </button> -->
+    <button onclick="addTask()" class ='btn btn-primary'>Add</button>
   </div>
-  <br>
   <br>
 
   <div id= "todolist" class="container"></div>
