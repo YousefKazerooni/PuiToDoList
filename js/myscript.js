@@ -1,4 +1,4 @@
-document.getElementById("we").style.color = "#A3C6A3";
+
 
 //Counter to allow differentiation betw ids for to list rows
 //so that it is easier to delete
@@ -37,6 +37,7 @@ function completeTask(e) {
 
 }
 
+
 //Function to list all the tasks added in the textarea
 function addTask() {
   counterItem++;
@@ -68,11 +69,53 @@ function addTask() {
 
   //creating a delete Button inside the div button
   var delButton = document.createElement('button');
+  var divDelButton = document.createElement('div');
+  divDelButton.setAttribute('class', 'divDeleteButton');
   var buttonLabel = document.createTextNode ('delete');
   delButton.setAttribute('class','btn btn-primary');
   delButton.appendChild(buttonLabel);
   delButton.addEventListener ('click', deleteTask);
+  divDelButton.appendChild(delButton);
   //delButton.onclick = deletTask; ****(personal note) to be able to access event properties in the delete function have to use addEventListener
-  document.getElementById(counterItemId).appendChild(delButton);
+  document.getElementById(counterItemId).appendChild(divDelButton);
+
+}
+
+//Function to create a category
+function createCategory() {
+    var todoListCat = document.querySelector("#todolist");
+
+
+  var categoryName= document.querySelector("#categoryTextArea").value;
+  // Make a div - put a h3 inside - color the dive - append it all to the cattarea
+  var divCategoryName = document.createElement("div");
+  divCategoryName.setAttribute('class',"divCategoryTitle");
+  var PCategoryName = document.createElement("h2");
+  PCategoryName.innerHTML = categoryName;
+  divCategoryName.appendChild(PCategoryName);
+
+
+
+  var header = document.createElement('h4');
+  var headerText = document.createTextNode ("List the items you need");
+  header.setAttribute ('id',"we");
+  header.appendChild(headerText);
+
+  var textInput = document.createElement ("textarea");
+  textInput.setAttribute('id',"myTextarea");
+  textInput.setAttribute('class',"form-control");
+  textInput.setAttribute('placeholder', "what is important?");
+
+  var buttonForAddTask = document.createElement("button");
+  var buttonForAddTaskText = document.createTextNode("Add");
+  buttonForAddTask.setAttribute('class', "btn btn-primary");
+  buttonForAddTask.appendChild(buttonForAddTaskText);
+  buttonForAddTask.addEventListener('click', addTask);
+
+
+  todoListCat.appendChild(divCategoryName);
+  todoListCat.appendChild(header);
+  todoListCat.appendChild(textInput);
+  todoListCat.appendChild(buttonForAddTask);
 
 }

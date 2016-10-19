@@ -26,20 +26,43 @@
     </div>
   </header>
 
+<div class= "container">
+<!-- **************************************modal -->
+  <button type="button" class= "btn btn-primary" data-toggle = "modal" data-target ="#modal-1">Create a Category</button>
+  <div class= "modal" id= "modal-1">
+    <div class = "modal-dialog">
+      <div class = "modal-content">
+        <div class = "modal-header">
+          <!-- <button type ="button" class="close" data-dimiss= "modal">&times;</button> -->
+          <h3 class= "modal-title">Create a Category to make a list for</h3>
 
-  <div class = "container">
+        </div>
+        <div class ="modal-body">
+
+          <div id= "modeContent" class = "container">
+            <h2 id="category">Name a Category</h3>
+            <textarea id="categoryTextArea" class ='form-control' placeholder="Food, Clothing, Equipment, etc" ></textarea>
+            <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+            <button type="button" class="btn btn-success" data-dismiss="modal" onclick= "createCategory()">Create</button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+<!-- *************************************end modal -->
+</div>
+
+
+  <!-- <div class = "container">
     <h2 id="we">Items for the trip</h2>
     <textarea  id="myTextarea" row= "4" cols = "50" class='form-control' placeholder="What are you taking for the trip?"></textarea><span><button onclick="addTask()" class ='btn btn-primary'>Add</button></span>
   </div>
-  <br>
+  <br> -->
 
   <div id= "todolist" class="container"></div>
 
-  <!-- <div class ="container">
-    <div class ="row">
-      <div id="imgContainer" class= "col-md-4"></div>
-    </div>
-  </div> -->
+
 
   <footer>
   </footer>
