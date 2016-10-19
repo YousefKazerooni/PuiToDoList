@@ -69,15 +69,15 @@ function addTask() {
 
   //creating a delete Button inside the div button
   var delButton = document.createElement('button');
-  var divDelButton = document.createElement('div');
-  divDelButton.setAttribute('class', 'divDeleteButton');
   var buttonLabel = document.createTextNode ('delete');
   delButton.setAttribute('class','btn btn-primary');
   delButton.appendChild(buttonLabel);
   delButton.addEventListener ('click', deleteTask);
-  divDelButton.appendChild(delButton);
+
   //delButton.onclick = deletTask; ****(personal note) to be able to access event properties in the delete function have to use addEventListener
-  document.getElementById(counterItemId).appendChild(divDelButton);
+  document.getElementById(counterItemId).appendChild(delButton);
+
+  document.getElementById('myTextarea').value= ' ';
 
 }
 
